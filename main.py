@@ -66,6 +66,4 @@ def get_store(Id: int, db: Session = Depends(get_db)):
 
 @app.post("/post/drankje/", response_model=schemas.APICreate)
 def add_store(API: schemas.APIBase, db: Session = Depends(get_db)):
-        if db_api is None:
-            raise HTTPException(status_code=404, detail="Winkel niet gevonden!")
         return crud.create_value(db=db, API=API)
